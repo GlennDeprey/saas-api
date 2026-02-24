@@ -1,8 +1,17 @@
 <Solution>
   <Folder Name="/Solution Items/">
+    <File Path=".dockerignore" />
     <File Path=".editorconfig" />
+    <File Path=".gitignore" />
     <File Path="Directory.Build.props" />
     <File Path="Directory.Packages.props" />
     <File Path="nuget.config" />
   </Folder>
+  <Folder Name="/src/" />
+  <Folder Name="/src/API/">
+    <Project Path="src/Api/Sass.Api/Sass.Api.csproj" Id="58174460-9c69-4542-b1a3-492a579f77cd" />
+  </Folder>
+  <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Modules/Events/" />
+  <Folder Name="/tests/" />
 </Solution>
