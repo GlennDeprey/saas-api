@@ -1,8 +1,9 @@
-﻿using MediatR;
+﻿using Saas.Modules.Events.Application.Events.GetEvent;
+using Saas.Modules.Events.Presentation.ApiResults;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
-using Saas.Modules.Events.Application.Events;
 
 namespace Saas.Modules.Events.Presentation.Events;
 
@@ -10,11 +11,11 @@ internal static class GetEvent
 {
     public static void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapGet("events/{id:guid}", async (Guid id, ISender sender) =>
+        app.MapGet("events/{id}", async (Guid id, ISender sender) =>
         {
-            var getEvent = await sender.Send(new GetEventQuery(id));
+            var result = await sender.Send(new GetEventQuery(id));
 
-            return getEvent is null ? Results.NotFound() : Results.Ok(getEvent);
+            return result.Match(Results.Ok, ApiResults.ApiResults.Problem);
         })
         .WithTags(Tags.EVENTS);
     }

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Saas.Modules.Events.Api.Database;
+using Saas.Modules.Events.Infrastructure.Database;
 
 namespace Saas.Api.Extensions;
 

@@ -3,6 +3,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageVersion Include="Dapper" Version="2.1.66" />
+    <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
     <PackageVersion Include="MediatR" Version="14.0.0" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.3" />
     <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="10.1.0" />
