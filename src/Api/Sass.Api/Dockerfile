@@ -16,6 +16,8 @@ COPY ["Directory.Packages.props", "."]
 COPY ["Directory.Build.props", "."]
 COPY ["nuget.config", "."]
 COPY ["src/Api/Sass.Api/Sass.Api.csproj", "src/Api/Sass.Api/"]
+COPY ["aspire/SassApi.ServiceDefaults/SassApi.ServiceDefaults.csproj", "aspire/SassApi.ServiceDefaults/"]
+COPY ["src/Modules/Events/Sass.Modules.Events.Api/Sass.Modules.Events.Api.csproj", "src/Modules/Events/Sass.Modules.Events.Api/"]
 RUN dotnet restore "./src/Api/Sass.Api/Sass.Api.csproj"
 COPY . .
 WORKDIR "/src/src/Api/Sass.Api"

@@ -1,0 +1,9 @@
+services:
+  sass.api:
+    image: ${DOCKER_REGISTRY-}sassapi
+    build:
+      context: .
+      dockerfile: src/Api/Sass.Api/Dockerfile
+    ports:
+      - 5000:8080
+      - 5001:8081
