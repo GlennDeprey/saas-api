@@ -1,6 +1,7 @@
 using Saas.Api.Common.OpenApi;
 using Saas.Api.Extensions;
-using Saas.Modules.Events.Api;
+using Saas.Modules.Events.Infrastructure;
+using SaasApi.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
 

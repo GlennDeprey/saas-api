@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Sass.Modules.Events.Api.Database.Migrations
+namespace Saas.Modules.Events.Infrastructure.Database
 {
     /// <inheritdoc />
     public partial class Create_Database : Migration

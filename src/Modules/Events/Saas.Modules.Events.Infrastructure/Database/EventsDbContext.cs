@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Saas.Modules.Events.Api.Events;
+using Saas.Modules.Events.Application.Abstractions.Data;
+using Saas.Modules.Events.Domain.Events;
 
-namespace Saas.Modules.Events.Api.Database;
+namespace Saas.Modules.Events.Infrastructure.Database;
 
-public sealed class EventsDbContext : DbContext
+public sealed class EventsDbContext : DbContext, IUnitOfWork
 {
     public EventsDbContext(DbContextOptions<EventsDbContext> options) : base(options)
     {

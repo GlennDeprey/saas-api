@@ -1,4 +1,4 @@
-﻿namespace Saas.Modules.Events.Api.Events;
+﻿namespace Saas.Modules.Events.Presentation;
 
 internal static class Tags
 {

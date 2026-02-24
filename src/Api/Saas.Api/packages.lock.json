@@ -49,6 +49,11 @@
         "resolved": "2.14.1",
         "contentHash": "lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw=="
       },
+      "MediatR.Contracts": {
+        "type": "Transitive",
+        "resolved": "2.0.1",
+        "contentHash": "FYv95bNT4UwcNA+G/J1oX5OpRiSUxteXaUt2BJbRSdRNiIUNbggJF69wy6mnk2wYToaanpdXZdCwVylt96MpwQ=="
+      },
       "Microsoft.Build.Framework": {
         "type": "Transitive",
         "resolved": "18.0.2",
@@ -224,6 +229,35 @@
           "Microsoft.Extensions.Compliance.Abstractions": "10.1.0"
         }
       },
+      "Microsoft.IdentityModel.Abstractions": {
+        "type": "Transitive",
+        "resolved": "8.14.0",
+        "contentHash": "iwbCpSjD3ehfTwBhtSNEtKPK0ICun6ov7Ibx6ISNA9bfwIyzI2Siwyi9eJFCJBwxowK9xcA1mj+jBWiigeqgcQ=="
+      },
+      "Microsoft.IdentityModel.JsonWebTokens": {
+        "type": "Transitive",
+        "resolved": "8.14.0",
+        "contentHash": "4jOpiA4THdtpLyMdAb24dtj7+6GmvhOhxf5XHLYWmPKF8ApEnApal1UnJsKO4HxUWRXDA6C4WQVfYyqsRhpNpQ==",
+        "dependencies": {
+          "Microsoft.IdentityModel.Tokens": "8.14.0"
+        }
+      },
+      "Microsoft.IdentityModel.Logging": {
+        "type": "Transitive",
+        "resolved": "8.14.0",
+        "contentHash": "eqqnemdW38CKZEHS6diA50BV94QICozDZEvSrsvN3SJXUFwVB9gy+/oz76gldP7nZliA16IglXjXTCTdmU/Ejg==",
+        "dependencies": {
+          "Microsoft.IdentityModel.Abstractions": "8.14.0"
+        }
+      },
+      "Microsoft.IdentityModel.Tokens": {
+        "type": "Transitive",
+        "resolved": "8.14.0",
+        "contentHash": "lKIZiBiGd36k02TCdMHp1KlNWisyIvQxcYJvIkz7P4gSQ9zi8dgh6S5Grj8NNG7HWYIPfQymGyoZ6JB5d1Lo1g==",
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "8.14.0"
+        }
+      },
       "Microsoft.OpenApi": {
         "type": "Transitive",
         "resolved": "2.0.0",
@@ -354,11 +388,31 @@
           "Scalar.AspNetCore": "[2.12.46, )"
         }
       },
-      "saas.modules.events.api": {
+      "saas.modules.events.application": {
+        "type": "Project",
+        "dependencies": {
+          "Dapper": "[2.1.66, )",
+          "MediatR": "[14.0.0, )",
+          "Saas.Modules.Events.Domain": "[1.0.0, )"
+        }
+      },
+      "saas.modules.events.domain": {
+        "type": "Project"
+      },
+      "saas.modules.events.infrastructure": {
         "type": "Project",
         "dependencies": {
           "EFCore.NamingConventions": "[10.0.1, )",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "[10.0.0, )"
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "[10.0.0, )",
+          "Saas.Modules.Events.Application": "[1.0.0, )",
+          "Saas.Modules.Events.Domain": "[1.0.0, )",
+          "Saas.Modules.Events.Presentation": "[1.0.0, )"
+        }
+      },
+      "saas.modules.events.presentation": {
+        "type": "Project",
+        "dependencies": {
+          "Saas.Modules.Events.Application": "[1.0.0, )"
         }
       },
       "saasapi.servicedefaults": {
@@ -373,6 +427,12 @@
           "OpenTelemetry.Instrumentation.Runtime": "[1.14.0, )"
         }
       },
+      "Dapper": {
+        "type": "CentralTransitive",
+        "requested": "[2.1.66, )",
+        "resolved": "2.1.66",
+        "contentHash": "/q77jUgDOS+bzkmk3Vy9SiWMaetTw+NOoPAV0xPBsGVAyljd5S6P+4RUW7R3ZUGGr9lDRyPKgAMj2UAOwvqZYw=="
+      },
       "EFCore.NamingConventions": {
         "type": "CentralTransitive",
         "requested": "[10.0.1, )",
@@ -381,6 +441,16 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "[10.0.1, 11.0.0)",
           "Microsoft.EntityFrameworkCore.Relational": "[10.0.1, 11.0.0)"
+        }
+      },
+      "MediatR": {
+        "type": "CentralTransitive",
+        "requested": "[14.0.0, )",
+        "resolved": "14.0.0",
+        "contentHash": "r5fwUO6NBvOFKaiMRx/gRrD1MEHHOio5yEdzSLs2OMeD2e9ZKnZaBQM6A6vVBEWJF4VY41vplXmDMOY1YvpqNA==",
+        "dependencies": {
+          "MediatR.Contracts": "[2.0.1, 3.0.0)",
+          "Microsoft.IdentityModel.JsonWebTokens": "8.14.0"
         }
       },
       "Microsoft.Extensions.Http.Resilience": {

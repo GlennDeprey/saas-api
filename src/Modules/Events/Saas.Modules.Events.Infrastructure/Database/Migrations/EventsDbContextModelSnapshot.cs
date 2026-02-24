@@ -4,12 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Saas.Modules.Events.Api.Database;
 
 
 #nullable disable
 
-namespace Sass.Modules.Events.Api.Database.Migrations
+namespace Saas.Modules.Events.Infrastructure.Database
 {
     [DbContext(typeof(EventsDbContext))]
     partial class EventsDbContextModelSnapshot : ModelSnapshot

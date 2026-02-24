@@ -18,7 +18,10 @@
   </Folder>
   <Folder Name="/src/Modules/" />
   <Folder Name="/src/Modules/Events/">
-    <Project Path="src/Modules/Events/Saas.Modules.Events.Api/Saas.Modules.Events.Api.csproj" Id="9dc8e543-cb5c-470e-a0af-7d18cd1f69e9" />
+    <Project Path="src/Modules/Events/Saas.Modules.Events.Application/Saas.Modules.Events.Application.csproj" Id="9d825d2f-0eaf-436a-b92c-da6dab702ec1" />
+    <Project Path="src/Modules/Events/Saas.Modules.Events.Domain/Saas.Modules.Events.Domain.csproj" Id="8b4a4f27-eeb7-4086-95e2-077073e9489d" />
+    <Project Path="src/Modules/Events/Saas.Modules.Events.Infrastructure/Saas.Modules.Events.Infrastructure.csproj" Id="50c9b8d0-6b15-43b0-827d-f1ee90e47097" />
+    <Project Path="src/Modules/Events/Saas.Modules.Events.Presentation/Saas.Modules.Events.Presentation.csproj" Id="672895f5-7b1f-442a-a03e-586c25a27d1a" />
   </Folder>
   <Folder Name="/tests/" />
   <Project Path="docker-compose.dcproj">

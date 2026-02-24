@@ -1,4 +1,4 @@
-﻿namespace Saas.Modules.Events.Api.Events;
+﻿namespace Saas.Modules.Events.Application.Events;
 
 public sealed record EventResponse(
     Guid Id,
