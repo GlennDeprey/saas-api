@@ -1,3 +1,4 @@
+using Saas.Api.Common.OpenApi;
 using Saas.Api.Extensions;
 using Saas.Modules.Events.Api;
 
@@ -15,7 +16,7 @@ app.MapDefaultEndpoints();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.MapScalarOpenApi();
     app.ApplyMigrations();
 }
 
