@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
-using Sass.Modules.Events.Api.Database;
+using Saas.Modules.Events.Api.Database;
 
-namespace Sass.Modules.Events.Api.Events;
+namespace Saas.Modules.Events.Api.Events;
 
 public static class GetEvent
 {

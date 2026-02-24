@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Sass.Modules.Events.Api.Events;
+using Saas.Modules.Events.Api.Events;
 
-namespace Sass.Modules.Events.Api.Database;
+namespace Saas.Modules.Events.Api.Database;
 
 public sealed class EventsDbContext : DbContext
 {

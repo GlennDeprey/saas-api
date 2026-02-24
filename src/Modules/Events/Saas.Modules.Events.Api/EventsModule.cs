@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Sass.Modules.Events.Api.Database;
-using Sass.Modules.Events.Api.Events;
+using Saas.Modules.Events.Api.Database;
+using Saas.Modules.Events.Api.Events;
 
-namespace Sass.Modules.Events.Api;
+namespace Saas.Modules.Events.Api;
 
 public static class EventsModule
 {

@@ -1,7 +1,7 @@
 <Solution>
   <Folder Name="/aspire/">
-    <Project Path="aspire/SassApi.AppHost/SassApi.AppHost.csproj" Id="4aa32d03-7ba4-4d59-b7bd-781e83e8cc41" />
-    <Project Path="aspire/SassApi.ServiceDefaults/SassApi.ServiceDefaults.csproj" />
+    <Project Path="aspire/SaasApi.AppHost/SaasApi.AppHost.csproj" Id="4aa32d03-7ba4-4d59-b7bd-781e83e8cc41" />
+    <Project Path="aspire/SaasApi.ServiceDefaults/SaasApi.ServiceDefaults.csproj" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".dockerignore" />
@@ -13,11 +13,12 @@
   </Folder>
   <Folder Name="/src/" />
   <Folder Name="/src/API/">
-    <Project Path="src/Api/Sass.Api/Sass.Api.csproj" Id="58174460-9c69-4542-b1a3-492a579f77cd" />
+    <Project Path="src/Api/Saas.Api.Common/Saas.Api.Common.csproj" />
+    <Project Path="src/Api/Saas.Api/Saas.Api.csproj" Id="58174460-9c69-4542-b1a3-492a579f77cd" />
   </Folder>
   <Folder Name="/src/Modules/" />
   <Folder Name="/src/Modules/Events/">
-    <Project Path="src/Modules/Events/Sass.Modules.Events.Api/Sass.Modules.Events.Api.csproj" Id="9dc8e543-cb5c-470e-a0af-7d18cd1f69e9" />
+    <Project Path="src/Modules/Events/Saas.Modules.Events.Api/Saas.Modules.Events.Api.csproj" Id="9dc8e543-cb5c-470e-a0af-7d18cd1f69e9" />
   </Folder>
   <Folder Name="/tests/" />
   <Project Path="docker-compose.dcproj">

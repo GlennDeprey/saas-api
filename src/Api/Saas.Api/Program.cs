@@ -1,4 +1,5 @@
-using Sass.Modules.Events.Api;
+using Saas.Api.Extensions;
+using Saas.Modules.Events.Api;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ app.MapDefaultEndpoints();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.ApplyMigrations();
 }
 
 EventsModule.MapEndpoints(app);

@@ -9,12 +9,16 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\aspire\SassApi.ServiceDefaults\SassApi.ServiceDefaults.csproj" />
-    <ProjectReference Include="..\..\Modules\Events\Sass.Modules.Events.Api\Sass.Modules.Events.Api.csproj" />
+    <ProjectReference Include="..\..\..\aspire\SaasApi.ServiceDefaults\SaasApi.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\..\Modules\Events\Saas.Modules.Events.Api\Saas.Modules.Events.Api.csproj" />
   </ItemGroup>
 
 </Project>

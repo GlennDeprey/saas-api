@@ -1,4 +1,4 @@
-﻿namespace Sass.Modules.Events.Api.Database;
+﻿namespace Saas.Modules.Events.Api.Database;
 
 internal static class Schemas
 {

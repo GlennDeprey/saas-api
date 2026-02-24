@@ -1,4 +1,4 @@
-﻿namespace Sass.Modules.Events.Api.Events;
+﻿namespace Saas.Modules.Events.Api.Events;
 
 public enum EventStatus
 {
