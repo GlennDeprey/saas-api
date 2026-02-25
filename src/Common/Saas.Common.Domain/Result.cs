@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Saas.Modules.Events.Domain.Abstractions;
+namespace Saas.Common.Domain;
 
 public class Result
 {

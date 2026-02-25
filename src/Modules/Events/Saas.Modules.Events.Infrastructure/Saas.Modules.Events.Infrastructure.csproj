@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Saas.Common.Infrastructure\Saas.Common.Infrastructure.csproj" />
     <ProjectReference Include="..\Saas.Modules.Events.Application\Saas.Modules.Events.Application.csproj" />
-    <ProjectReference Include="..\Saas.Modules.Events.Domain\Saas.Modules.Events.Domain.csproj" />
     <ProjectReference Include="..\Saas.Modules.Events.Presentation\Saas.Modules.Events.Presentation.csproj" />
   </ItemGroup>
 

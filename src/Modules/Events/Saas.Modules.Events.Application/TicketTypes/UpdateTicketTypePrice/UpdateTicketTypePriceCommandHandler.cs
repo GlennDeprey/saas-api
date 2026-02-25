@@ -1,6 +1,6 @@
-﻿using Saas.Modules.Events.Application.Abstractions.Data;
-using Saas.Modules.Events.Application.Abstractions.Messaging;
-using Saas.Modules.Events.Domain.Abstractions;
+﻿using Saas.Common.Application.Messaging;
+using Saas.Modules.Events.Application.Abstractions.Data;
+using Saas.Common.Domain;
 using Saas.Modules.Events.Domain.TicketTypes;
 
 namespace Saas.Modules.Events.Application.TicketTypes.UpdateTicketTypePrice;

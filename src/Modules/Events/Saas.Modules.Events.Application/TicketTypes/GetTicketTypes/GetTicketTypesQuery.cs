@@ -1,4 +1,4 @@
-﻿using Saas.Modules.Events.Application.Abstractions.Messaging;
+﻿using Saas.Common.Application.Messaging;
 using Saas.Modules.Events.Application.TicketTypes.GetTicketType;
 
 namespace Saas.Modules.Events.Application.TicketTypes.GetTicketTypes;

@@ -1,7 +1,7 @@
-﻿using Saas.Modules.Events.Application.Abstractions.Clock;
+﻿using Saas.Common.Application.Messaging;
+using Saas.Common.Application.Clock;
 using Saas.Modules.Events.Application.Abstractions.Data;
-using Saas.Modules.Events.Application.Abstractions.Messaging;
-using Saas.Modules.Events.Domain.Abstractions;
+using Saas.Common.Domain;
 using Saas.Modules.Events.Domain.Events;
 
 namespace Saas.Modules.Events.Application.Events.CancelEvent;

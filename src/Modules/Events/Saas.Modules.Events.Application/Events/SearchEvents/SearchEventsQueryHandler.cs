@@ -1,10 +1,10 @@
 ﻿using System.Data.Common;
 using Dapper;
-using Saas.Modules.Events.Application.Abstractions.Data;
-using Saas.Modules.Events.Application.Abstractions.Messaging;
-using Saas.Modules.Events.Domain.Abstractions;
+using Saas.Common.Domain;
 using Saas.Modules.Events.Domain.Events;
 using Saas.Modules.Events.Application.Events.GetEvents;
+using Saas.Common.Application.Messaging;
+using Saas.Common.Application.Data;
 
 namespace Saas.Modules.Events.Application.Events.SearchEvents;
 

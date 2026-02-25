@@ -1,6 +1,6 @@
 ﻿using System.Data.Common;
 
-namespace Saas.Modules.Events.Application.Abstractions.Data;
+namespace Saas.Common.Application.Data;
 
 public interface IDbConnectionFactory
 {

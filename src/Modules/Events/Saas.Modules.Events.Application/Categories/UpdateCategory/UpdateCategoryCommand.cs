@@ -1,4 +1,4 @@
-﻿using Saas.Modules.Events.Application.Abstractions.Messaging;
+﻿using Saas.Common.Application.Messaging;
 
 namespace Saas.Modules.Events.Application.Categories.UpdateCategory;
 

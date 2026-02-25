@@ -19,6 +19,9 @@
         "requested": "[4.15.0, )",
         "resolved": "4.15.0",
         "contentHash": "/LvSJGJbrx+OYC2GePmiAA9fRTfz37R/oaHC2j8YK/j9lE8ykZESCGTMVGqXF5woc6RbzfJlpYkzeG6fAV6hFQ=="
+      },
+      "saas.common.domain": {
+        "type": "Project"
       }
     }
   }

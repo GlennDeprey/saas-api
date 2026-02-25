@@ -1,7 +1,7 @@
 ﻿using Dapper;
-using Saas.Modules.Events.Application.Abstractions.Data;
-using Saas.Modules.Events.Application.Abstractions.Messaging;
-using Saas.Modules.Events.Domain.Abstractions;
+using Saas.Common.Application.Data;
+using Saas.Common.Application.Messaging;
+using Saas.Common.Domain;
 using Saas.Modules.Events.Domain.Categories;
 
 namespace Saas.Modules.Events.Application.Categories.GetCategory;

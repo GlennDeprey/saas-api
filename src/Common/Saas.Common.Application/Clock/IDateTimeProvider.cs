@@ -1,4 +1,4 @@
-﻿namespace Saas.Modules.Events.Application.Abstractions.Clock;
+﻿namespace Saas.Common.Application.Clock;
 
 public interface IDateTimeProvider
 {

@@ -1,7 +1,7 @@
-﻿using Saas.Modules.Events.Domain.Abstractions;
+﻿using Saas.Common.Domain;
 using MediatR;
 
-namespace Saas.Modules.Events.Application.Abstractions.Messaging;
+namespace Saas.Common.Application.Messaging;
 
 public interface ICommand : IRequest<Result>, IBaseCommand;
 

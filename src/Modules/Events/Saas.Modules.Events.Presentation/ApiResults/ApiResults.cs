@@ -1,4 +1,4 @@
-﻿using Saas.Modules.Events.Domain.Abstractions;
+﻿using Saas.Common.Domain;
 using Microsoft.AspNetCore.Http;
 
 namespace Saas.Modules.Events.Presentation.ApiResults;

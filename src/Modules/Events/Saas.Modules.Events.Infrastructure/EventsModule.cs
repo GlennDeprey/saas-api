@@ -6,7 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Npgsql;
-using Saas.Modules.Events.Application.Abstractions.Clock;
+using Saas.Common.Application.Clock;
+using Saas.Common.Application.Data;
 using Saas.Modules.Events.Application.Abstractions.Data;
 using Saas.Modules.Events.Domain.Categories;
 using Saas.Modules.Events.Domain.Events;
@@ -42,7 +43,6 @@ public static class EventsModule
         services.AddValidatorsFromAssembly(Application.AssemblyReference.Assembly, includeInternalTypes: true);
 
         services.AddPersistance(configuration);
-        services.AddInfrastructure();
 
         return services;
     }
@@ -51,11 +51,6 @@ public static class EventsModule
     {
         var databaseConnectionString = configuration.GetConnectionString("Database") ??
             throw new InvalidOperationException("Connection string 'Database' not found.");
-
-        var npgDataSource = new NpgsqlDataSourceBuilder(databaseConnectionString).Build();
-        services.TryAddSingleton(npgDataSource);
-
-        services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
 
         services.AddDbContext<EventsDbContext>(options =>
             options.UseNpgsql(
@@ -69,10 +64,5 @@ public static class EventsModule
         services.AddScoped<IEventRepository, EventRepository>();
         services.AddScoped<ITicketTypeRepository, TicketTypeRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
-    }
-
-    private static void AddInfrastructure(this IServiceCollection services)
-    {
-        services.TryAddSingleton<IDateTimeProvider, DateTimeProvider>();
     }
 }

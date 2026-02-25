@@ -1,12 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	
+
   <ItemGroup>
-    <PackageReference Include="Dapper" />
-    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
-    <PackageReference Include="MediatR" />
-  </ItemGroup>
-	
-  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Saas.Common.Application\Saas.Common.Application.csproj" />
     <ProjectReference Include="..\Saas.Modules.Events.Domain\Saas.Modules.Events.Domain.csproj" />
   </ItemGroup>
 

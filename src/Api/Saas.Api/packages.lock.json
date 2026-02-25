@@ -393,23 +393,45 @@
           "Scalar.AspNetCore": "[2.12.46, )"
         }
       },
-      "saas.modules.events.application": {
+      "saas.common.application": {
         "type": "Project",
         "dependencies": {
           "Dapper": "[2.1.66, )",
           "FluentValidation.DependencyInjectionExtensions": "[12.1.1, )",
           "MediatR": "[14.0.0, )",
+          "Saas.Common.Domain": "[1.0.0, )"
+        }
+      },
+      "saas.common.domain": {
+        "type": "Project"
+      },
+      "saas.common.infrastructure": {
+        "type": "Project",
+        "dependencies": {
+          "EFCore.NamingConventions": "[10.0.1, )",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "[10.0.0, )",
+          "Saas.Common.Application": "[1.0.0, )"
+        }
+      },
+      "saas.modules.events.application": {
+        "type": "Project",
+        "dependencies": {
+          "Saas.Common.Application": "[1.0.0, )",
           "Saas.Modules.Events.Domain": "[1.0.0, )"
         }
       },
       "saas.modules.events.domain": {
-        "type": "Project"
+        "type": "Project",
+        "dependencies": {
+          "Saas.Common.Domain": "[1.0.0, )"
+        }
       },
       "saas.modules.events.infrastructure": {
         "type": "Project",
         "dependencies": {
           "EFCore.NamingConventions": "[10.0.1, )",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "[10.0.0, )",
+          "Saas.Common.Infrastructure": "[1.0.0, )",
           "Saas.Modules.Events.Application": "[1.0.0, )",
           "Saas.Modules.Events.Domain": "[1.0.0, )",
           "Saas.Modules.Events.Presentation": "[1.0.0, )"

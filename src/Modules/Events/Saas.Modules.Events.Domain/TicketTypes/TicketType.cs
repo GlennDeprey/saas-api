@@ -1,4 +1,4 @@
-﻿using Saas.Modules.Events.Domain.Abstractions;
+﻿using Saas.Common.Domain;
 using Saas.Modules.Events.Domain.Events;
 
 namespace Saas.Modules.Events.Domain.TicketTypes;

@@ -1,6 +1,6 @@
-﻿using Saas.Modules.Events.Domain.Abstractions;
+﻿using Saas.Common.Domain;
 
-namespace Saas.Modules.Events.Application.Abstractions.Exceptions;
+namespace Saas.Common.Application.Exceptions;
 
 #pragma warning disable RCS1194
 public sealed class SaasException : Exception

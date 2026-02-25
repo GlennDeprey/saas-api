@@ -1,4 +1,4 @@
-﻿namespace Saas.Modules.Events.Domain.Abstractions;
+﻿namespace Saas.Common.Domain;
 
 public abstract class Entity
 {

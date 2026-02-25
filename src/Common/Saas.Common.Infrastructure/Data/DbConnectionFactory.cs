@@ -1,8 +1,8 @@
 ﻿using Npgsql;
-using Saas.Modules.Events.Application.Abstractions.Data;
+using Saas.Common.Application.Data;
 using System.Data.Common;
 
-namespace Saas.Modules.Events.Infrastructure.Database;
+namespace Saas.Common.Infrastructure.Data;
 
 internal sealed class DbConnectionFactory: IDbConnectionFactory
 {
