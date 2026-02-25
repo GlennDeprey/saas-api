@@ -18,11 +18,14 @@ public static class StartupExtensions
         var databaseConnectionString = configuration.GetConnectionString("saasdb") ??
             throw new InvalidOperationException("Connection string 'saasdb' not found.");
 
+        var redisConnectionString = configuration.GetConnectionString("redis") ??
+            throw new InvalidOperationException("Connection string 'redis' not found.");
+
         services.AddApplication(configuration,
             [
                 Modules.Events.Application.AssemblyReference.Assembly
             ]);
-        services.AddInfrastructure(databaseConnectionString);
+        services.AddInfrastructure(databaseConnectionString, redisConnectionString);
         return services;
     }
 

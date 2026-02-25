@@ -1,10 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Npgsql;
+using Saas.Common.Application.Caching;
 using Saas.Common.Application.Clock;
 using Saas.Common.Application.Data;
+using Saas.Common.Infrastructure.Caching;
 using Saas.Common.Infrastructure.Clock;
 using Saas.Common.Infrastructure.Data;
+using StackExchange.Redis;
 
 namespace Saas.Common.Infrastructure;
 
@@ -12,7 +15,8 @@ public static class InfrastructureConfiguration
 {
     public static IServiceCollection AddInfrastructure(
         this IServiceCollection services,
-        string databaseConnectionString)
+        string databaseConnectionString,
+        string redisConnectionString)
     {
 
         var npgDataSource = new NpgsqlDataSourceBuilder(databaseConnectionString).Build();
@@ -21,6 +25,14 @@ public static class InfrastructureConfiguration
         services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
 
         services.TryAddSingleton<IDateTimeProvider, DateTimeProvider>();
+
+        var connectionMultiplexer = ConnectionMultiplexer.Connect(redisConnectionString);
+        services.TryAddSingleton(connectionMultiplexer);
+
+        services.AddStackExchangeRedisCache(options =>
+            options.ConnectionMultiplexerFactory = () => Task.FromResult<IConnectionMultiplexer>(connectionMultiplexer));
+
+        services.TryAddSingleton<ICacheService, CacheService>();
 
         return services;
     }
