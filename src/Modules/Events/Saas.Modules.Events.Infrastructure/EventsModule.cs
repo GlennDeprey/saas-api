@@ -4,16 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Npgsql;
-using Saas.Common.Application.Clock;
-using Saas.Common.Application.Data;
 using Saas.Modules.Events.Application.Abstractions.Data;
 using Saas.Modules.Events.Domain.Categories;
 using Saas.Modules.Events.Domain.Events;
 using Saas.Modules.Events.Domain.TicketTypes;
 using Saas.Modules.Events.Infrastructure.Categories;
-using Saas.Modules.Events.Infrastructure.Clock;
 using Saas.Modules.Events.Infrastructure.Database;
 using Saas.Modules.Events.Infrastructure.Events;
 using Saas.Modules.Events.Infrastructure.TicketTypes;
@@ -49,7 +44,7 @@ public static class EventsModule
 
     private static void AddPersistance(this IServiceCollection services, IConfiguration configuration)
     {
-        var databaseConnectionString = configuration.GetConnectionString("Database") ??
+        var databaseConnectionString = configuration.GetConnectionString("saasdb") ??
             throw new InvalidOperationException("Connection string 'Database' not found.");
 
         services.AddDbContext<EventsDbContext>(options =>

@@ -9,14 +9,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
+builder.AddSeqEndpoint("seq");
+
 builder.Services.AddOpenApi();
 
 builder.Services.AddApplication([Saas.Modules.Events.Application.AssemblyReference.Assembly]);
 
-var databaseConnectionString = builder.Configuration.GetConnectionString("Database") ??
+var databaseConnectionString = builder.Configuration.GetConnectionString("saasdb") ??
             throw new InvalidOperationException("Connection string 'Database' not found.");
 
 builder.Services.AddInfrastructure(databaseConnectionString);
+builder.Configuration.AddModuleConfiguration(["events"]);
 
 builder.Services.AddEventsModule(builder.Configuration);
 
@@ -32,4 +35,4 @@ if (app.Environment.IsDevelopment())
 
 EventsModule.MapEndpoints(app);
 
-app.Run();
+await app.RunAsync();

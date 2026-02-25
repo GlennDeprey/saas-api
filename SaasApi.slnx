@@ -29,7 +29,4 @@
     <Project Path="src/Modules/Events/Saas.Modules.Events.Presentation/Saas.Modules.Events.Presentation.csproj" Id="672895f5-7b1f-442a-a03e-586c25a27d1a" />
   </Folder>
   <Folder Name="/tests/" />
-  <Project Path="docker-compose.dcproj">
-    <Build />
-  </Project>
 </Solution>
