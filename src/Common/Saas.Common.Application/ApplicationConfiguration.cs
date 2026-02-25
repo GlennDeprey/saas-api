@@ -15,13 +15,16 @@ public static class ApplicationConfiguration
     {
         var mediatROptions = configuration
             .GetSection(MediatROptions.SECTION_NAME)
-            .Get<MediatROptions>() ?? new MediatROptions();
+            .Get<MediatROptions>() ?? throw new InvalidOperationException("MediatR license key not found.");
 
         services.AddMediatR(config =>
         {
-            config.LicenseKey = mediatROptions.LicenseKey ?? string.Empty;
+            config.LicenseKey = mediatROptions.LicenseKey;
             config.RegisterServicesFromAssemblies(moduleAssemblies);
+
+            config.AddOpenBehavior(typeof(Behaviors.ExceptionHandlingPipelineBehavior<,>));
             config.AddOpenBehavior(typeof(Behaviors.RequestLoggingPipelineBehavior<,>));
+            config.AddOpenBehavior(typeof(Behaviors.ValidationPipelineBehavior<,>));
         });
 
         services.AddValidatorsFromAssemblies(moduleAssemblies, includeInternalTypes: true);

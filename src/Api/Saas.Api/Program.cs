@@ -1,5 +1,6 @@
 using Saas.Api.Common.OpenApi;
 using Saas.Api.Extensions;
+using Saas.Api.Middleware;
 using Saas.Modules.Events.Infrastructure;
 using SaasApi.ServiceDefaults;
 using Serilog;
@@ -7,11 +8,13 @@ using Serilog.Sinks.OpenTelemetry;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddServiceDefaults();
+builder.AddSeqEndpoint("seq");
+
 builder.Host.UseSerilog((context, loggerConfig) =>
 {
     loggerConfig.ReadFrom.Configuration(context.Configuration);
 
-    // Add OpenTelemetry sink for Aspire Dashboard
     var otlpEndpoint = context.Configuration["OTEL_EXPORTER_OTLP_ENDPOINT"];
     if (!string.IsNullOrWhiteSpace(otlpEndpoint))
     {
@@ -27,8 +30,8 @@ builder.Host.UseSerilog((context, loggerConfig) =>
     }
 });
 
-builder.AddServiceDefaults();
-builder.AddSeqEndpoint("seq");
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
 
 builder.Configuration.AddModuleConfiguration(["events"]);
 
@@ -49,5 +52,7 @@ if (app.Environment.IsDevelopment())
 EventsModule.MapEndpoints(app);
 
 app.UseSerilogRequestLogging();
+
+app.UseExceptionHandler();
 
 await app.RunAsync();
