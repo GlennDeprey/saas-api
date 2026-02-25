@@ -1,10 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
 	<PackageReference Include="Dapper" />
-    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
-    <PackageReference Include="MediatR" />
+	<PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+	<PackageReference Include="MediatR" />
+	<PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
+	<PackageReference Include="Microsoft.Extensions.Options" />
+	<PackageReference Include="Serilog" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Saas.Common.Domain\Saas.Common.Domain.csproj" />
+	<ProjectReference Include="..\Saas.Common.Domain\Saas.Common.Domain.csproj" />
   </ItemGroup>
 </Project>
