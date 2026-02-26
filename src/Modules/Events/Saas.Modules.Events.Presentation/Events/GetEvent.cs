@@ -16,7 +16,7 @@ internal class GetEvent: IEndpoint
         {
             var result = await sender.Send(new GetEventQuery(id));
 
-            return result.Match(Results.Ok, Common.Presentation.ApiResults.ApiResults.Problem);
+            return result.Match(Results.Ok, ApiResults.Problem);
         })
         .WithTags(Tags.EVENTS);
     }

@@ -1,0 +1,12 @@
+﻿namespace Saas.Modules.Ticketing.Application.Carts;
+
+public sealed class CartItem
+{
+    public Guid TicketTypeId { get; set; }
+
+    public decimal Quantity { get; set; }
+
+    public decimal Price { get; set; }
+
+    public required string Currency { get; set; }
+}

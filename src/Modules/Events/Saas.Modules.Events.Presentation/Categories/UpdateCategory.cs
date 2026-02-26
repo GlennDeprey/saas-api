@@ -16,7 +16,7 @@ internal class UpdateCategory: IEndpoint
         {
             var result = await sender.Send(new UpdateCategoryCommand(id, request.Name));
 
-            return result.Match(() => Results.Ok(), Common.Presentation.ApiResults.ApiResults.Problem);
+            return result.Match(() => Results.Ok(), ApiResults.Problem);
         })
         .WithTags(Tags.CATEGORIES);
     }

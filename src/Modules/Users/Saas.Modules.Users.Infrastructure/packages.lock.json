@@ -57,14 +57,6 @@
           "Microsoft.Extensions.Logging": "10.0.1"
         }
       },
-      "Microsoft.Extensions.Caching.Abstractions": {
-        "type": "Transitive",
-        "resolved": "10.0.3",
-        "contentHash": "5dtXBvI8t3z8pF4tB38JYgi/enCL/DwSXxpqShgFz3SHJ7IzqFIMs6Gu5ik8sNZzcO9qQs3xIDpB3vDamkYG+Q==",
-        "dependencies": {
-          "Microsoft.Extensions.Primitives": "10.0.3"
-        }
-      },
       "Microsoft.Extensions.Caching.Memory": {
         "type": "Transitive",
         "resolved": "10.0.3",
@@ -237,6 +229,9 @@
           "Saas.Modules.Users.Application": "[1.0.0, )"
         }
       },
+      "saas.modules.users.publicapi": {
+        "type": "Project"
+      },
       "Dapper": {
         "type": "CentralTransitive",
         "requested": "[2.1.66, )",
@@ -281,6 +276,15 @@
         "requested": "[2.0.1, )",
         "resolved": "2.0.1",
         "contentHash": "FYv95bNT4UwcNA+G/J1oX5OpRiSUxteXaUt2BJbRSdRNiIUNbggJF69wy6mnk2wYToaanpdXZdCwVylt96MpwQ=="
+      },
+      "Microsoft.Extensions.Caching.Abstractions": {
+        "type": "CentralTransitive",
+        "requested": "[10.0.3, )",
+        "resolved": "10.0.3",
+        "contentHash": "5dtXBvI8t3z8pF4tB38JYgi/enCL/DwSXxpqShgFz3SHJ7IzqFIMs6Gu5ik8sNZzcO9qQs3xIDpB3vDamkYG+Q==",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "10.0.3"
+        }
       },
       "Microsoft.Extensions.Caching.Hybrid": {
         "type": "CentralTransitive",

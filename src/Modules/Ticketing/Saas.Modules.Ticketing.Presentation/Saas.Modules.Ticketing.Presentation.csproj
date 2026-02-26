@@ -1,0 +1,6 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Common\Saas.Common.Presentation\Saas.Common.Presentation.csproj" />
+		<ProjectReference Include="..\Saas.Modules.Ticketing.Application\Saas.Modules.Ticketing.Application.csproj" />
+	</ItemGroup>
+</Project>

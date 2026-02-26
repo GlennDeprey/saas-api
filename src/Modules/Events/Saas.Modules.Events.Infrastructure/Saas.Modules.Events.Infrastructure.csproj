@@ -3,6 +3,7 @@
     <ProjectReference Include="..\..\..\Common\Saas.Common.Infrastructure\Saas.Common.Infrastructure.csproj" />
     <ProjectReference Include="..\Saas.Modules.Events.Application\Saas.Modules.Events.Application.csproj" />
     <ProjectReference Include="..\Saas.Modules.Events.Presentation\Saas.Modules.Events.Presentation.csproj" />
+    <ProjectReference Include="..\Saas.Modules.Events.PublicApi\Saas.Modules.Events.PublicApi.csproj" />
   </ItemGroup>
 
   <ItemGroup>

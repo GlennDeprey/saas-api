@@ -33,7 +33,7 @@ builder.Host.UseSerilog((context, loggerConfig) =>
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
 
-builder.Configuration.AddModuleConfiguration(["events", "users"]);
+builder.Configuration.AddModuleConfiguration(["events", "users", "ticketing"]);
 
 builder.Services.ConfigureServices(builder.Configuration);
 

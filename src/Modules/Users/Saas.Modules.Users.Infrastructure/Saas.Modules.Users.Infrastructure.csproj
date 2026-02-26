@@ -4,6 +4,7 @@
 		<ProjectReference Include="..\..\..\Common\Saas.Common.Infrastructure\Saas.Common.Infrastructure.csproj" />
 		<ProjectReference Include="..\Saas.Modules.Users.Application\Saas.Modules.Users.Application.csproj" />
 		<ProjectReference Include="..\Saas.Modules.Users.Presentation\Saas.Modules.Users.Presentation.csproj" />
+		<ProjectReference Include="..\Saas.Modules.Users.PublicApi\Saas.Modules.Users.PublicApi.csproj" />
 	</ItemGroup>
 
 </Project>

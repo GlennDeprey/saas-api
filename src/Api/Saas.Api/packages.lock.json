@@ -572,7 +572,8 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": "[10.0.0, )",
           "Saas.Common.Infrastructure": "[1.0.0, )",
           "Saas.Modules.Events.Application": "[1.0.0, )",
-          "Saas.Modules.Events.Presentation": "[1.0.0, )"
+          "Saas.Modules.Events.Presentation": "[1.0.0, )",
+          "Saas.Modules.Events.PublicApi": "[1.0.0, )"
         }
       },
       "saas.modules.events.presentation": {
@@ -580,6 +581,40 @@
         "dependencies": {
           "Saas.Common.Presentation": "[1.0.0, )",
           "Saas.Modules.Events.Application": "[1.0.0, )"
+        }
+      },
+      "saas.modules.events.publicapi": {
+        "type": "Project"
+      },
+      "saas.modules.ticketing.application": {
+        "type": "Project",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Hybrid": "[10.3.0, )",
+          "Saas.Common.Application": "[1.0.0, )",
+          "Saas.Modules.Events.PublicApi": "[1.0.0, )",
+          "Saas.Modules.Ticketing.Domain": "[1.0.0, )",
+          "Saas.Modules.Users.PublicApi": "[1.0.0, )"
+        }
+      },
+      "saas.modules.ticketing.domain": {
+        "type": "Project",
+        "dependencies": {
+          "Saas.Common.Domain": "[1.0.0, )"
+        }
+      },
+      "saas.modules.ticketing.infrastructure": {
+        "type": "Project",
+        "dependencies": {
+          "Saas.Common.Infrastructure": "[1.0.0, )",
+          "Saas.Modules.Ticketing.Application": "[1.0.0, )",
+          "Saas.Modules.Ticketing.Presentation": "[1.0.0, )"
+        }
+      },
+      "saas.modules.ticketing.presentation": {
+        "type": "Project",
+        "dependencies": {
+          "Saas.Common.Presentation": "[1.0.0, )",
+          "Saas.Modules.Ticketing.Application": "[1.0.0, )"
         }
       },
       "saas.modules.users.application": {
@@ -600,7 +635,8 @@
         "dependencies": {
           "Saas.Common.Infrastructure": "[1.0.0, )",
           "Saas.Modules.Users.Application": "[1.0.0, )",
-          "Saas.Modules.Users.Presentation": "[1.0.0, )"
+          "Saas.Modules.Users.Presentation": "[1.0.0, )",
+          "Saas.Modules.Users.PublicApi": "[1.0.0, )"
         }
       },
       "saas.modules.users.presentation": {
@@ -610,6 +646,9 @@
           "Saas.Common.Presentation": "[1.0.0, )",
           "Saas.Modules.Users.Application": "[1.0.0, )"
         }
+      },
+      "saas.modules.users.publicapi": {
+        "type": "Project"
       },
       "saasapi.servicedefaults": {
         "type": "Project",

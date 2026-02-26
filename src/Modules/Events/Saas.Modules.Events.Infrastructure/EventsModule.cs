@@ -1,5 +1,4 @@
-﻿using FluentValidation;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,7 +11,9 @@ using Saas.Modules.Events.Domain.TicketTypes;
 using Saas.Modules.Events.Infrastructure.Categories;
 using Saas.Modules.Events.Infrastructure.Database;
 using Saas.Modules.Events.Infrastructure.Events;
+using Saas.Modules.Events.Infrastructure.PublicApi;
 using Saas.Modules.Events.Infrastructure.TicketTypes;
+using Saas.Modules.Events.PublicApi;
 
 namespace Saas.Modules.Events.Infrastructure;
 
@@ -46,5 +47,7 @@ public static class EventsModule
         services.AddScoped<IEventRepository, EventRepository>();
         services.AddScoped<ITicketTypeRepository, TicketTypeRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
+
+        services.AddScoped<IEventsApi, EventsApi>();
     }
 }

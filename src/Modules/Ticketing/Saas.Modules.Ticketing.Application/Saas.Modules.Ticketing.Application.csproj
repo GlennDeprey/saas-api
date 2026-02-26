@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Extensions.Caching.Hybrid" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Common\Saas.Common.Application\Saas.Common.Application.csproj" />
+		<ProjectReference Include="..\..\Events\Saas.Modules.Events.PublicApi\Saas.Modules.Events.PublicApi.csproj" />
+		<ProjectReference Include="..\..\Users\Saas.Modules.Users.PublicApi\Saas.Modules.Users.PublicApi.csproj" />
+		<ProjectReference Include="..\Saas.Modules.Ticketing.Domain\Saas.Modules.Ticketing.Domain.csproj" />
+	</ItemGroup>
+</Project>

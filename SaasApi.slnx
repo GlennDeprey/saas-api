@@ -28,12 +28,20 @@
     <Project Path="src/Modules/Events/Saas.Modules.Events.Domain/Saas.Modules.Events.Domain.csproj" Id="8b4a4f27-eeb7-4086-95e2-077073e9489d" />
     <Project Path="src/Modules/Events/Saas.Modules.Events.Infrastructure/Saas.Modules.Events.Infrastructure.csproj" Id="50c9b8d0-6b15-43b0-827d-f1ee90e47097" />
     <Project Path="src/Modules/Events/Saas.Modules.Events.Presentation/Saas.Modules.Events.Presentation.csproj" Id="672895f5-7b1f-442a-a03e-586c25a27d1a" />
+    <Project Path="src/Modules/Events/Saas.Modules.Events.PublicApi/Saas.Modules.Events.PublicApi.csproj" Id="51c9df45-c75b-4c28-824e-381c24864751" />
+  </Folder>
+  <Folder Name="/src/Modules/Ticketing/">
+    <Project Path="src/Modules/Ticketing/Saas.Modules.Ticketing.Application/Saas.Modules.Ticketing.Application.csproj" Id="d108d9c8-65dc-43d9-a5d3-28b2db6f45fa" />
+    <Project Path="src/Modules/Ticketing/Saas.Modules.Ticketing.Domain/Saas.Modules.Ticketing.Domain.csproj" Id="644f9664-839e-4651-bb6b-c3f430833409" />
+    <Project Path="src/Modules/Ticketing/Saas.Modules.Ticketing.Infrastructure/Saas.Modules.Ticketing.Infrastructure.csproj" Id="bc914f9b-8a52-44ec-a6fd-0d65b86bfad5" />
+    <Project Path="src/Modules/Ticketing/Saas.Modules.Ticketing.Presentation/Saas.Modules.Ticketing.Presentation.csproj" Id="7121e970-061d-44c6-b1c2-0edc2da76000" />
   </Folder>
   <Folder Name="/src/Modules/Users/">
     <Project Path="src/Modules/Users/Saas.Modules.Users.Application/Saas.Modules.Users.Application.csproj" Id="fce2febc-fcf5-4645-adb2-e1d420ea434b" />
     <Project Path="src/Modules/Users/Saas.Modules.Users.Domain/Saas.Modules.Users.Domain.csproj" Id="d807b1f2-28f2-471b-bf1c-6841213e04fe" />
     <Project Path="src/Modules/Users/Saas.Modules.Users.Infrastructure/Saas.Modules.Users.Infrastructure.csproj" Id="9f7bef40-97d4-4d2e-91f4-770f3607319b" />
     <Project Path="src/Modules/Users/Saas.Modules.Users.Presentation/Saas.Modules.Users.Presentation.csproj" Id="fb71ac76-b1f1-4fac-9f24-b24c86953d98" />
+    <Project Path="src/Modules/Users/Saas.Modules.Users.PublicApi/Saas.Modules.Users.PublicApi.csproj" Id="55ae67e6-91e6-4452-8fcd-26a5299425b9" />
   </Folder>
   <Folder Name="/tests/" />
 </Solution>

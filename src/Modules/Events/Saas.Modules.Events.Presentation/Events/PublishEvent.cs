@@ -16,7 +16,7 @@ internal class PublishEvent: IEndpoint
         {
             var result = await sender.Send(new PublishEventCommand(id));
 
-            return result.Match(Results.NoContent, Common.Presentation.ApiResults.ApiResults.Problem);
+            return result.Match(Results.NoContent, ApiResults.Problem);
         })
         .WithTags(Tags.EVENTS);
     }

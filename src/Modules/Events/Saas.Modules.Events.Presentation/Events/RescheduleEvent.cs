@@ -17,7 +17,7 @@ internal class RescheduleEvent: IEndpoint
             var result = await sender.Send(
                 new RescheduleEventCommand(id, request.StartsAtUtc, request.EndsAtUtc));
 
-            return result.Match(Results.NoContent, Common.Presentation.ApiResults.ApiResults.Problem);
+            return result.Match(Results.NoContent, ApiResults.Problem);
         })
         .WithTags(Tags.EVENTS);
     }

@@ -1,7 +1,9 @@
-﻿using Saas.Modules.Events.Infrastructure;
-using Saas.Common.Application;
+﻿using Saas.Common.Application;
 using Saas.Common.Infrastructure;
+using Saas.Modules.Events.Infrastructure;
 using Saas.Modules.Users.Infrastructure;
+using Saas.Modules.Ticketing.Infrastructure;
+
 
 namespace Saas.Api.Extensions;
 
@@ -33,10 +35,12 @@ public static class StartupExtensions
             [
                 Modules.Events.Application.AssemblyReference.Assembly,
                 Modules.Users.Application.AssemblyReference.Assembly,
+                Modules.Ticketing.Application.AssemblyReference.Assembly
             ]);
 
         services.AddEventsModule(configuration);
         services.AddUsersModule(configuration);
+        services.AddTicketingModule(configuration);
 
         return services;
     }
