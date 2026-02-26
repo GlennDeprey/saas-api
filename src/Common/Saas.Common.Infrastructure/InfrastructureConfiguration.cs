@@ -5,7 +5,8 @@ using Npgsql;
 using Saas.Common.Application.Clock;
 using Saas.Common.Application.Data;
 using Saas.Common.Infrastructure.Clock;
-using Saas.Common.Infrastructure.Data;
+using Saas.Common.Infrastructure.Database;
+using Saas.Common.Infrastructure.Interceptors;
 using StackExchange.Redis;
 
 namespace Saas.Common.Infrastructure;
@@ -24,6 +25,8 @@ public static class InfrastructureConfiguration
         services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
 
         services.TryAddSingleton<IDateTimeProvider, DateTimeProvider>();
+
+        services.TryAddSingleton<PublishDomainEventsInterceptor>();
 
         services.AddCaching(redisConnectionString);
 

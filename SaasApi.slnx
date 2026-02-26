@@ -29,5 +29,11 @@
     <Project Path="src/Modules/Events/Saas.Modules.Events.Infrastructure/Saas.Modules.Events.Infrastructure.csproj" Id="50c9b8d0-6b15-43b0-827d-f1ee90e47097" />
     <Project Path="src/Modules/Events/Saas.Modules.Events.Presentation/Saas.Modules.Events.Presentation.csproj" Id="672895f5-7b1f-442a-a03e-586c25a27d1a" />
   </Folder>
+  <Folder Name="/src/Modules/Users/">
+    <Project Path="src/Modules/Users/Saas.Modules.Users.Application/Saas.Modules.Users.Application.csproj" Id="fce2febc-fcf5-4645-adb2-e1d420ea434b" />
+    <Project Path="src/Modules/Users/Saas.Modules.Users.Domain/Saas.Modules.Users.Domain.csproj" Id="d807b1f2-28f2-471b-bf1c-6841213e04fe" />
+    <Project Path="src/Modules/Users/Saas.Modules.Users.Infrastructure/Saas.Modules.Users.Infrastructure.csproj" Id="9f7bef40-97d4-4d2e-91f4-770f3607319b" />
+    <Project Path="src/Modules/Users/Saas.Modules.Users.Presentation/Saas.Modules.Users.Presentation.csproj" Id="fb71ac76-b1f1-4fac-9f24-b24c86953d98" />
+  </Folder>
   <Folder Name="/tests/" />
 </Solution>

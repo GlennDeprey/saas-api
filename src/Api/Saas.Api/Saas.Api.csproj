@@ -24,6 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\aspire\SaasApi.ServiceDefaults\SaasApi.ServiceDefaults.csproj" />
     <ProjectReference Include="..\..\Modules\Events\Saas.Modules.Events.Infrastructure\Saas.Modules.Events.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Modules\Users\Saas.Modules.Users.Infrastructure\Saas.Modules.Users.Infrastructure.csproj" />
     <ProjectReference Include="..\Saas.Api.Common\Saas.Api.Common.csproj" />
   </ItemGroup>
 

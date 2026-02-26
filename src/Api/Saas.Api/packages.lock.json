@@ -115,11 +115,6 @@
         "resolved": "2.14.1",
         "contentHash": "lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw=="
       },
-      "MediatR.Contracts": {
-        "type": "Transitive",
-        "resolved": "2.0.1",
-        "contentHash": "FYv95bNT4UwcNA+G/J1oX5OpRiSUxteXaUt2BJbRSdRNiIUNbggJF69wy6mnk2wYToaanpdXZdCwVylt96MpwQ=="
-      },
       "Microsoft.Build.Framework": {
         "type": "Transitive",
         "resolved": "18.0.2",
@@ -536,7 +531,10 @@
         }
       },
       "saas.common.domain": {
-        "type": "Project"
+        "type": "Project",
+        "dependencies": {
+          "MediatR.Contracts": "[2.0.1, )"
+        }
       },
       "saas.common.infrastructure": {
         "type": "Project",
@@ -582,6 +580,35 @@
         "dependencies": {
           "Saas.Common.Presentation": "[1.0.0, )",
           "Saas.Modules.Events.Application": "[1.0.0, )"
+        }
+      },
+      "saas.modules.users.application": {
+        "type": "Project",
+        "dependencies": {
+          "Saas.Common.Application": "[1.0.0, )",
+          "Saas.Modules.Users.Domain": "[1.0.0, )"
+        }
+      },
+      "saas.modules.users.domain": {
+        "type": "Project",
+        "dependencies": {
+          "Saas.Common.Domain": "[1.0.0, )"
+        }
+      },
+      "saas.modules.users.infrastructure": {
+        "type": "Project",
+        "dependencies": {
+          "Saas.Common.Infrastructure": "[1.0.0, )",
+          "Saas.Modules.Users.Application": "[1.0.0, )",
+          "Saas.Modules.Users.Presentation": "[1.0.0, )"
+        }
+      },
+      "saas.modules.users.presentation": {
+        "type": "Project",
+        "dependencies": {
+          "Saas.Common.Infrastructure": "[1.0.0, )",
+          "Saas.Common.Presentation": "[1.0.0, )",
+          "Saas.Modules.Users.Application": "[1.0.0, )"
         }
       },
       "saasapi.servicedefaults": {
@@ -632,6 +659,12 @@
           "MediatR.Contracts": "[2.0.1, 3.0.0)",
           "Microsoft.IdentityModel.JsonWebTokens": "8.14.0"
         }
+      },
+      "MediatR.Contracts": {
+        "type": "CentralTransitive",
+        "requested": "[2.0.1, )",
+        "resolved": "2.0.1",
+        "contentHash": "FYv95bNT4UwcNA+G/J1oX5OpRiSUxteXaUt2BJbRSdRNiIUNbggJF69wy6mnk2wYToaanpdXZdCwVylt96MpwQ=="
       },
       "Microsoft.Extensions.Caching.Hybrid": {
         "type": "CentralTransitive",

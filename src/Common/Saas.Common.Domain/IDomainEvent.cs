@@ -1,6 +1,8 @@
-﻿namespace Saas.Common.Domain;
+﻿using MediatR;
 
-public interface IDomainEvent
+namespace Saas.Common.Domain;
+
+public interface IDomainEvent: INotification
 {
     Guid Id { get; }
     DateTime OccurredOnUtc { get; }

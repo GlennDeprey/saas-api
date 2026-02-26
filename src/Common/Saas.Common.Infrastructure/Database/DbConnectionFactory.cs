@@ -2,7 +2,7 @@
 using Saas.Common.Application.Data;
 using System.Data.Common;
 
-namespace Saas.Common.Infrastructure.Data;
+namespace Saas.Common.Infrastructure.Database;
 
 internal sealed class DbConnectionFactory: IDbConnectionFactory
 {

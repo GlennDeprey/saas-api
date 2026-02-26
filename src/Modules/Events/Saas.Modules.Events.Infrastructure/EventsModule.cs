@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Saas.Common.Infrastructure.Interceptors;
 using Saas.Common.Presentation.Endpoints;
 using Saas.Modules.Events.Application.Abstractions.Data;
 using Saas.Modules.Events.Domain.Categories;
@@ -32,11 +33,12 @@ public static class EventsModule
         var databaseConnectionString = configuration.GetConnectionString("saasdb") ??
             throw new InvalidOperationException("Connection string 'Database' not found.");
 
-        services.AddDbContext<EventsDbContext>(options =>
+        services.AddDbContext<EventsDbContext>((sp, options) =>
             options.UseNpgsql(
                 databaseConnectionString,
                 npgsqlOptions => npgsqlOptions.MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.EVENTS))
-            .UseSnakeCaseNamingConvention());
+            .UseSnakeCaseNamingConvention()
+            .AddInterceptors(sp.GetRequiredService<PublishDomainEventsInterceptor>()));
 
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<EventsDbContext>());
 
