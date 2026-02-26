@@ -234,6 +234,12 @@
           "Saas.Common.Application": "[1.0.0, )"
         }
       },
+      "saas.common.presentation": {
+        "type": "Project",
+        "dependencies": {
+          "Saas.Common.Domain": "[1.0.0, )"
+        }
+      },
       "saas.modules.events.application": {
         "type": "Project",
         "dependencies": {
@@ -250,6 +256,7 @@
       "saas.modules.events.presentation": {
         "type": "Project",
         "dependencies": {
+          "Saas.Common.Presentation": "[1.0.0, )",
           "Saas.Modules.Events.Application": "[1.0.0, )"
         }
       },

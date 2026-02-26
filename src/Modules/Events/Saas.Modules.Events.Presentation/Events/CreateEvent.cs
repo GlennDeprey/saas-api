@@ -1,15 +1,16 @@
-﻿using Saas.Modules.Events.Application.Events.CreateEvent;
-using Saas.Modules.Events.Presentation.ApiResults;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Saas.Common.Presentation.Endpoints;
+using Saas.Modules.Events.Application.Events.CreateEvent;
+using Saas.Common.Presentation.ApiResults;
 
 namespace Saas.Modules.Events.Presentation.Events;
 
-internal static class CreateEvent
+internal class CreateEvent: IEndpoint
 {
-    public static void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder app)
     {
         app.MapPost("events", async (Request request, ISender sender) =>
         {
@@ -21,7 +22,7 @@ internal static class CreateEvent
                 request.StartsAtUtc,
                 request.EndsAtUtc));
 
-            return result.Match(Results.Ok, ApiResults.ApiResults.Problem);
+            return result.Match(Results.Ok, Common.Presentation.ApiResults.ApiResults.Problem);
         })
         .WithTags(Tags.EVENTS);
     }

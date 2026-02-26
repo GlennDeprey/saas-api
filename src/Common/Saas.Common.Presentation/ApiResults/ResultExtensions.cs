@@ -1,6 +1,6 @@
 ﻿using Saas.Common.Domain;
 
-namespace Saas.Modules.Events.Presentation.ApiResults;
+namespace Saas.Common.Presentation.ApiResults;
 
 public static class ResultExtensions
 {

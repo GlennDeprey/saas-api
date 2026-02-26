@@ -1,22 +1,23 @@
-﻿using Saas.Modules.Events.Application.Events.RescheduleEvent;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
-using Saas.Modules.Events.Presentation.ApiResults;
+using Saas.Common.Presentation.Endpoints;
+using Saas.Modules.Events.Application.Events.RescheduleEvent;
+using Saas.Common.Presentation.ApiResults;
 
 namespace Saas.Modules.Events.Presentation.Events;
 
-internal static class RescheduleEvent
+internal class RescheduleEvent: IEndpoint
 {
-    public static void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder app)
     {
         app.MapPut("events/{id}/reschedule", async (Guid id, Request request, ISender sender) =>
         {
             var result = await sender.Send(
                 new RescheduleEventCommand(id, request.StartsAtUtc, request.EndsAtUtc));
 
-            return result.Match(Results.NoContent, ApiResults.ApiResults.Problem);
+            return result.Match(Results.NoContent, Common.Presentation.ApiResults.ApiResults.Problem);
         })
         .WithTags(Tags.EVENTS);
     }

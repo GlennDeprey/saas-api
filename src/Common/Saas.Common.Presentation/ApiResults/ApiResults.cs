@@ -1,7 +1,7 @@
 ﻿using Saas.Common.Domain;
 using Microsoft.AspNetCore.Http;
 
-namespace Saas.Modules.Events.Presentation.ApiResults;
+namespace Saas.Common.Presentation.ApiResults;
 
 public static class ApiResults
 {

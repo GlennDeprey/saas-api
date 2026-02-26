@@ -2,20 +2,21 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
-using Saas.Modules.Events.Presentation.ApiResults;
+using Saas.Common.Presentation.Endpoints;
 using Saas.Modules.Events.Application.Events.CancelEvent;
+using Saas.Common.Presentation.ApiResults;
 
 namespace Saas.Modules.Events.Presentation.Events;
 
-internal static class CancelEvent
+internal class CancelEvent: IEndpoint
 {
-    public static void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder app)
     {
         app.MapDelete("events/{id}/cancel", async (Guid id, ISender sender) =>
         {
             var result = await sender.Send(new CancelEventCommand(id));
 
-            return result.Match(Results.NoContent, ApiResults.ApiResults.Problem);
+            return result.Match(Results.NoContent, Common.Presentation.ApiResults.ApiResults.Problem);
         })
         .WithTags(Tags.EVENTS);
     }

@@ -1,21 +1,22 @@
-﻿using Saas.Modules.Events.Application.Events.PublishEvent;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
-using Saas.Modules.Events.Presentation.ApiResults;
+using Saas.Common.Presentation.Endpoints;
+using Saas.Modules.Events.Application.Events.PublishEvent;
+using Saas.Common.Presentation.ApiResults;
 
 namespace Saas.Modules.Events.Presentation.Events;
 
-internal static class PublishEvent
+internal class PublishEvent: IEndpoint
 {
-    public static void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder app)
     {
         app.MapPut("events/{id}/publish", async (Guid id, ISender sender) =>
         {
             var result = await sender.Send(new PublishEventCommand(id));
 
-            return result.Match(Results.NoContent, ApiResults.ApiResults.Problem);
+            return result.Match(Results.NoContent, Common.Presentation.ApiResults.ApiResults.Problem);
         })
         .WithTags(Tags.EVENTS);
     }

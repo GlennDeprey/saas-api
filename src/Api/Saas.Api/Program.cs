@@ -1,7 +1,7 @@
 using Saas.Api.Common.OpenApi;
 using Saas.Api.Extensions;
 using Saas.Api.Middleware;
-using Saas.Modules.Events.Infrastructure;
+using Saas.Common.Presentation.Endpoints;
 using SaasApi.ServiceDefaults;
 using Serilog;
 using Serilog.Sinks.OpenTelemetry;
@@ -43,13 +43,13 @@ var app = builder.Build();
 
 app.MapDefaultEndpoints();
 
+app.MapEndpoints();
+
 if (app.Environment.IsDevelopment())
 {
     app.MapScalarOpenApi();
     app.ApplyMigrations();
 }
-
-EventsModule.MapEndpoints(app);
 
 app.UseSerilogRequestLogging();
 

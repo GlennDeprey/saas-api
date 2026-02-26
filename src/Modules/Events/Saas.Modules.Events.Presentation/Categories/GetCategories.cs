@@ -1,17 +1,18 @@
-﻿using Saas.Modules.Events.Application.Categories.GetCategories;
-using Saas.Modules.Events.Presentation.ApiResults;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
-using Saas.Modules.Events.Application.Categories.GetCategory;
 using Microsoft.Extensions.Caching.Memory;
+using Saas.Common.Presentation.Endpoints;
+using Saas.Modules.Events.Application.Categories.GetCategories;
+using Saas.Modules.Events.Application.Categories.GetCategory;
+using Saas.Common.Presentation.ApiResults;
 
 namespace Saas.Modules.Events.Presentation.Categories;
 
-internal static class GetCategories
+internal class GetCategories: IEndpoint
 {
-    public static void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder app)
     {
         app.MapGet("categories", async (ISender sender, IMemoryCache cache) =>
         {
@@ -32,7 +33,7 @@ internal static class GetCategories
                 });
             }
 
-            return result.Match(Results.Ok, ApiResults.ApiResults.Problem);
+            return result.Match(Results.Ok, Common.Presentation.ApiResults.ApiResults.Problem);
         })
         .WithTags(Tags.CATEGORIES);
     }

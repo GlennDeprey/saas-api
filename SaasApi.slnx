@@ -20,6 +20,7 @@
     <Project Path="src/Common/Saas.Common.Application/Saas.Common.Application.csproj" Id="c9214b73-16ae-4727-8206-64df5382fc62" />
     <Project Path="src/Common/Saas.Common.Domain/Saas.Common.Domain.csproj" Id="5d0dd6c0-f1a1-41c6-ab97-2baf79f45680" />
     <Project Path="src/Common/Saas.Common.Infrastructure/Saas.Common.Infrastructure.csproj" Id="6506c464-e00d-4371-b4a2-01428ed138e5" />
+    <Project Path="src/Common/Saas.Common.Presentation/Saas.Common.Presentation.csproj" Id="00b9b628-dd61-4c83-9397-48b62a7652e7" />
   </Folder>
   <Folder Name="/src/Modules/" />
   <Folder Name="/src/Modules/Events/">

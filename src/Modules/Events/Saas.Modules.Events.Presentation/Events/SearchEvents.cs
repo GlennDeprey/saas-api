@@ -1,15 +1,16 @@
-﻿using Saas.Modules.Events.Application.Events.SearchEvents;
-using Saas.Modules.Events.Presentation.ApiResults;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Saas.Common.Presentation.Endpoints;
+using Saas.Modules.Events.Application.Events.SearchEvents;
+using Saas.Common.Presentation.ApiResults;
 
 namespace Saas.Modules.Events.Presentation.Events;
 
-internal static class SearchEvents
+internal class SearchEvents: IEndpoint
 {
-    public static void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder app)
     {
         app.MapGet("events/search", async(
             ISender sender,
@@ -22,7 +23,7 @@ internal static class SearchEvents
             var result = await sender.Send(
                 new SearchEventsQuery(categoryId, startDate, endDate, page, pageSize));
 
-            return result.Match(Results.Ok, ApiResults.ApiResults.Problem);
+            return result.Match(Results.Ok, Common.Presentation.ApiResults.ApiResults.Problem);
         })
         .WithTags(Tags.EVENTS);
     }
