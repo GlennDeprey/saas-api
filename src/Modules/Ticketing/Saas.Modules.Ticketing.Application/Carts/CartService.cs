@@ -4,27 +4,27 @@ namespace Saas.Modules.Ticketing.Application.Carts;
 
 public sealed class CartService
 {
-    private static readonly HybridCacheEntryOptions _defaultEntryOptions = new()
+    private static readonly HybridCacheEntryOptions _cacheOptions = new()
     {
         Expiration = TimeSpan.FromMinutes(20),
         LocalCacheExpiration = TimeSpan.FromMinutes(20)
     };
 
-    private readonly HybridCache _cache;
+    private readonly HybridCache _hybridCache;
 
-    public CartService(HybridCache cache)
+    public CartService(HybridCache hybridCache)
     {
-        _cache = cache;
+        _hybridCache = hybridCache;
     }
 
     public async Task<Cart> GetAsync(Guid customerId, CancellationToken cancellationToken = default)
     {
         var cacheKey = CreateCacheKey(customerId);
 
-        return await _cache.GetOrCreateAsync(
+        return await _hybridCache.GetOrCreateAsync(
             cacheKey,
             _ => ValueTask.FromResult(Cart.CreateDefault(customerId)),
-            _defaultEntryOptions,
+            _cacheOptions,
             cancellationToken: cancellationToken);
     }
 
@@ -34,7 +34,7 @@ public sealed class CartService
 
         var cart = Cart.CreateDefault(customerId);
 
-        await _cache.SetAsync(cacheKey, cart, _defaultEntryOptions, cancellationToken: cancellationToken);
+        await _hybridCache.SetAsync(cacheKey, cart, _cacheOptions, cancellationToken: cancellationToken);
     }
 
     public async Task AddItemAsync(Guid customerId, CartItem cartItem, CancellationToken cancellationToken = default)
@@ -54,7 +54,7 @@ public sealed class CartService
             existingCartItem.Quantity += cartItem.Quantity;
         }
 
-        await _cache.SetAsync(cacheKey, cart, _defaultEntryOptions, cancellationToken: cancellationToken);
+        await _hybridCache.SetAsync(cacheKey, cart, _cacheOptions, cancellationToken: cancellationToken);
     }
 
     public async Task RemoveItemAsync(Guid customerId, Guid ticketTypeId, CancellationToken cancellationToken = default)
@@ -72,7 +72,7 @@ public sealed class CartService
 
         cart.Items.Remove(cartItem);
 
-        await _cache.SetAsync(cacheKey, cart, _defaultEntryOptions, cancellationToken: cancellationToken);
+        await _hybridCache.SetAsync(cacheKey, cart, _cacheOptions, cancellationToken: cancellationToken);
     }
 
     private static string CreateCacheKey(Guid customerId) => $"carts:{customerId}";
