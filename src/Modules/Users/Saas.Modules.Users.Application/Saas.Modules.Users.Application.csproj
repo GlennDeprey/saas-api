@@ -2,6 +2,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\Common\Saas.Common.Application\Saas.Common.Application.csproj" />
+		<ProjectReference Include="..\..\Ticketing\Saas.Modules.Ticketing.PublicApi\Saas.Modules.Ticketing.PublicApi.csproj" />
 		<ProjectReference Include="..\Saas.Modules.Users.Domain\Saas.Modules.Users.Domain.csproj" />
 	</ItemGroup>
 

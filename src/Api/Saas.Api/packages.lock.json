@@ -605,9 +605,12 @@
       "saas.modules.ticketing.infrastructure": {
         "type": "Project",
         "dependencies": {
+          "EFCore.NamingConventions": "[10.0.1, )",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "[10.0.0, )",
           "Saas.Common.Infrastructure": "[1.0.0, )",
           "Saas.Modules.Ticketing.Application": "[1.0.0, )",
-          "Saas.Modules.Ticketing.Presentation": "[1.0.0, )"
+          "Saas.Modules.Ticketing.Presentation": "[1.0.0, )",
+          "Saas.Modules.Ticketing.PublicApi": "[1.0.0, )"
         }
       },
       "saas.modules.ticketing.presentation": {
@@ -617,10 +620,14 @@
           "Saas.Modules.Ticketing.Application": "[1.0.0, )"
         }
       },
+      "saas.modules.ticketing.publicapi": {
+        "type": "Project"
+      },
       "saas.modules.users.application": {
         "type": "Project",
         "dependencies": {
           "Saas.Common.Application": "[1.0.0, )",
+          "Saas.Modules.Ticketing.PublicApi": "[1.0.0, )",
           "Saas.Modules.Users.Domain": "[1.0.0, )"
         }
       },

@@ -208,10 +208,14 @@
           "Saas.Common.Domain": "[1.0.0, )"
         }
       },
+      "saas.modules.ticketing.publicapi": {
+        "type": "Project"
+      },
       "saas.modules.users.application": {
         "type": "Project",
         "dependencies": {
           "Saas.Common.Application": "[1.0.0, )",
+          "Saas.Modules.Ticketing.PublicApi": "[1.0.0, )",
           "Saas.Modules.Users.Domain": "[1.0.0, )"
         }
       },

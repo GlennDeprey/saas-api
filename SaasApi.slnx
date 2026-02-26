@@ -31,6 +31,7 @@
     <Project Path="src/Modules/Events/Saas.Modules.Events.PublicApi/Saas.Modules.Events.PublicApi.csproj" Id="51c9df45-c75b-4c28-824e-381c24864751" />
   </Folder>
   <Folder Name="/src/Modules/Ticketing/">
+    <Project Path="src/Modules/Ticketing/Saas.Modules.Ticketing.PublicApi/Saas.Modules.Ticketing.PublicApi.csproj" Id="e2511325-2873-4251-a198-359a92bbdb29" />
     <Project Path="src/Modules/Ticketing/Saas.Modules.Ticketing.Application/Saas.Modules.Ticketing.Application.csproj" Id="d108d9c8-65dc-43d9-a5d3-28b2db6f45fa" />
     <Project Path="src/Modules/Ticketing/Saas.Modules.Ticketing.Domain/Saas.Modules.Ticketing.Domain.csproj" Id="644f9664-839e-4651-bb6b-c3f430833409" />
     <Project Path="src/Modules/Ticketing/Saas.Modules.Ticketing.Infrastructure/Saas.Modules.Ticketing.Infrastructure.csproj" Id="bc914f9b-8a52-44ec-a6fd-0d65b86bfad5" />

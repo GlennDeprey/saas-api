@@ -5,16 +5,24 @@ using Saas.Modules.Users.Application.Abstractions.Data;
 
 namespace Saas.Modules.Users.Application.Users.RegisterUser;
 
-internal sealed class RegisterUserCommandHandler(IUserRepository userRepository, IUnitOfWork unitOfWork)
-    : ICommandHandler<RegisterUserCommand, Guid>
+internal sealed class RegisterUserCommandHandler: ICommandHandler<RegisterUserCommand, Guid>
 {
+    private readonly IUserRepository _userRepository;
+    private readonly IUnitOfWork _unitOfWork;
+
+    public RegisterUserCommandHandler(IUserRepository userRepository, IUnitOfWork unitOfWork)
+    {
+        _userRepository = userRepository;
+        _unitOfWork = unitOfWork;
+    }
+
     public async Task<Result<Guid>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
     {
         var user = User.Create(request.Email, request.FirstName, request.LastName);
 
-        userRepository.Insert(user);
+        _userRepository.Insert(user);
 
-        await unitOfWork.SaveChangesAsync(cancellationToken);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         return user.Id;
     }

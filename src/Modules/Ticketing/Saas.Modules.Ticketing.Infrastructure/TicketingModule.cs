@@ -1,7 +1,16 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Saas.Common.Infrastructure.Interceptors;
 using Saas.Common.Presentation.Endpoints;
+using Saas.Modules.Ticketing.Application.Abstractions.Data;
 using Saas.Modules.Ticketing.Application.Carts;
+using Saas.Modules.Ticketing.Domain.Customers;
+using Saas.Modules.Ticketing.Infrastructure.Customers;
+using Saas.Modules.Ticketing.Infrastructure.Database;
+using Saas.Modules.Ticketing.Infrastructure.PublicApi;
+using Saas.Modules.Ticketing.PublicApi;
 
 namespace Saas.Modules.Ticketing.Infrastructure;
 
@@ -11,8 +20,6 @@ public static class TicketingModule
     {
         // Add endpoints for module
         services.AddEndpoints(Presentation.AssemblyReference.Assembly);
-
-        services.AddSingleton<CartService>();
 
         services.AddPersistance(configuration);
 
@@ -24,14 +31,22 @@ public static class TicketingModule
         var databaseConnectionString = configuration.GetConnectionString("saasdb") ??
             throw new InvalidOperationException("Connection string 'Database' not found.");
 
-        //services.AddDbContext<EventsDbContext>((sp, options) =>
-        //    options.UseNpgsql(
-        //        databaseConnectionString,
-        //        npgsqlOptions => npgsqlOptions.MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.EVENTS))
-        //    .UseSnakeCaseNamingConvention()
-        //    .AddInterceptors(sp.GetRequiredService<PublishDomainEventsInterceptor>()));
+        services.AddDbContext<TicketingDbContext>((sp, options) =>
+            options
+                .UseNpgsql(
+                    databaseConnectionString,
+                    npgsqlOptions => npgsqlOptions
+                        .MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.TICKETING))
+                .UseSnakeCaseNamingConvention()
+                .AddInterceptors(sp.GetRequiredService<PublishDomainEventsInterceptor>()));
 
-        //services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<EventsDbContext>());
+        services.AddScoped<ICustomerRepository, CustomerRepository>();
+
+        services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<TicketingDbContext>());
+
+        services.AddSingleton<CartService>();
+
+        services.AddScoped<ITicketingApi, TicketingApi>();
 
     }
 }

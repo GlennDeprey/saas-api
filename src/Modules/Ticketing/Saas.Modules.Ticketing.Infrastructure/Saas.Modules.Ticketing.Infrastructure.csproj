@@ -3,5 +3,11 @@
 		<ProjectReference Include="..\..\..\Common\Saas.Common.Infrastructure\Saas.Common.Infrastructure.csproj" />
 		<ProjectReference Include="..\Saas.Modules.Ticketing.Application\Saas.Modules.Ticketing.Application.csproj" />
 		<ProjectReference Include="..\Saas.Modules.Ticketing.Presentation\Saas.Modules.Ticketing.Presentation.csproj" />
+		<ProjectReference Include="..\Saas.Modules.Ticketing.PublicApi\Saas.Modules.Ticketing.PublicApi.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="EFCore.NamingConventions" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
 	</ItemGroup>
 </Project>

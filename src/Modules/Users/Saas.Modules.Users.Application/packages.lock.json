@@ -108,6 +108,9 @@
           "MediatR.Contracts": "[2.0.1, )"
         }
       },
+      "saas.modules.ticketing.publicapi": {
+        "type": "Project"
+      },
       "saas.modules.users.domain": {
         "type": "Project",
         "dependencies": {
