@@ -8,8 +8,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Saas.Modules.Users.Infrastructure.Database;
 using Saas.Modules.Users.Infrastructure.Users;
 using Saas.Common.Infrastructure.Interceptors;
-using Saas.Modules.Users.PublicApi;
-using Saas.Modules.Users.Infrastructure.PublicApi;
 
 namespace Saas.Modules.Users.Infrastructure;
 
@@ -43,7 +41,5 @@ public static class UsersModule
         services.AddScoped<IUserRepository, UserRepository>();
 
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<UsersDbContext>());
-
-        services.AddScoped<IUsersApi, UsersApi>();
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MassTransit;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,8 +10,7 @@ using Saas.Modules.Ticketing.Application.Carts;
 using Saas.Modules.Ticketing.Domain.Customers;
 using Saas.Modules.Ticketing.Infrastructure.Customers;
 using Saas.Modules.Ticketing.Infrastructure.Database;
-using Saas.Modules.Ticketing.Infrastructure.PublicApi;
-using Saas.Modules.Ticketing.PublicApi;
+using Saas.Modules.Ticketing.Presentation.Customers;
 
 namespace Saas.Modules.Ticketing.Infrastructure;
 
@@ -24,6 +24,11 @@ public static class TicketingModule
         services.AddPersistance(configuration);
 
         return services;
+    }
+
+    public static void ConfigureConsumers(IRegistrationConfigurator configurator)
+    {
+        configurator.AddConsumer<UserRegisteredIntegrationEventConsumer>();
     }
 
     private static void AddPersistance(this IServiceCollection services, IConfiguration configuration)
@@ -45,8 +50,6 @@ public static class TicketingModule
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<TicketingDbContext>());
 
         services.AddSingleton<CartService>();
-
-        services.AddScoped<ITicketingApi, TicketingApi>();
 
     }
 }

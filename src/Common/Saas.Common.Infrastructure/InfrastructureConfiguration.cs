@@ -1,9 +1,11 @@
-﻿using Microsoft.Extensions.Caching.Hybrid;
+﻿using MassTransit;
+using Microsoft.Extensions.Caching.Hybrid;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Npgsql;
 using Saas.Common.Application.Clock;
 using Saas.Common.Application.Data;
+using Saas.Common.Application.EventBus;
 using Saas.Common.Infrastructure.Clock;
 using Saas.Common.Infrastructure.Database;
 using Saas.Common.Infrastructure.Interceptors;
@@ -15,6 +17,7 @@ public static class InfrastructureConfiguration
 {
     public static IServiceCollection AddInfrastructure(
         this IServiceCollection services,
+        Action<IRegistrationConfigurator>[] moduleConfigureConsumers,
         string databaseConnectionString,
         string redisConnectionString)
     {
@@ -27,6 +30,8 @@ public static class InfrastructureConfiguration
         services.TryAddSingleton<IDateTimeProvider, DateTimeProvider>();
 
         services.TryAddSingleton<PublishDomainEventsInterceptor>();
+
+        services.AddEventBus(moduleConfigureConsumers);
 
         services.AddCaching(redisConnectionString);
 
@@ -49,6 +54,28 @@ public static class InfrastructureConfiguration
         services.TryAddSingleton(connectionMultiplexer);
         services.AddStackExchangeRedisCache(options =>
             options.ConnectionMultiplexerFactory = () => Task.FromResult<IConnectionMultiplexer>(connectionMultiplexer));
+
+        return services;
+    }
+
+    private static IServiceCollection AddEventBus(this IServiceCollection services, Action<IRegistrationConfigurator>[] moduleConfigureConsumers)
+    {
+        services.AddMassTransit(configure =>
+        {
+            // Register consumers from modules
+            foreach (var configureConsumers in moduleConfigureConsumers)
+            {
+                configureConsumers(configure);
+            }
+
+            configure.SetKebabCaseEndpointNameFormatter();
+            configure.UsingInMemory((context, cfg) =>
+            {
+                cfg.ConfigureEndpoints(context);
+            });
+        });
+
+        services.TryAddSingleton<IEventBus, EventBus.EventBus>();
 
         return services;
     }

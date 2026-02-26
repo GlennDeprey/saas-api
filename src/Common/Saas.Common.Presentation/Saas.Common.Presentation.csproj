@@ -3,6 +3,9 @@
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\Saas.Common.Domain\Saas.Common.Domain.csproj" />
+		<PackageReference Include="MassTransit.Abstractions" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Saas.Common.Domain\Saas.Common.Domain.csproj" />
 	</ItemGroup>
 </Project>

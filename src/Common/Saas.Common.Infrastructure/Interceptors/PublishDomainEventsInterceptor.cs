@@ -9,9 +9,24 @@ namespace Saas.Common.Infrastructure.Interceptors;
 public sealed class PublishDomainEventsInterceptor: SaveChangesInterceptor
 {
     private readonly IServiceScopeFactory _serviceScopeFactory;
+    private List<IDomainEvent> _domainEvents = [];
+
     public PublishDomainEventsInterceptor(IServiceScopeFactory serviceScopeFactory)
     {
         _serviceScopeFactory = serviceScopeFactory;
+    }
+
+    public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(
+        DbContextEventData eventData,
+        InterceptionResult<int> result,
+        CancellationToken cancellationToken = default)
+    {
+        if (eventData.Context is not null)
+        {
+            _domainEvents = GetDomainEvents(eventData.Context);
+        }
+
+        return await base.SavingChangesAsync(eventData, result, cancellationToken);
     }
 
     public override async ValueTask<int> SavedChangesAsync(
@@ -19,32 +34,32 @@ public sealed class PublishDomainEventsInterceptor: SaveChangesInterceptor
         int result,
         CancellationToken cancellationToken = default)
     {
-        if (eventData.Context is not null)
+        if (_domainEvents.Count > 0)
         {
-            await PublishDomainEventsAsync(eventData.Context);
+            await PublishDomainEventsAsync(_domainEvents);
+            _domainEvents = [];
         }
 
         return await base.SavedChangesAsync(eventData, result, cancellationToken);
     }
 
-    private async Task PublishDomainEventsAsync(DbContext context)
+    private static List<IDomainEvent> GetDomainEvents(DbContext context)
     {
-        var domainEvents = context
+        return [.. context
             .ChangeTracker
             .Entries<Entity>()
             .Select(entry => entry.Entity)
             .SelectMany(entity =>
             {
-                var domainEvents = entity.DomainEvents;
-
+                var domainEvents = entity.DomainEvents.ToList();
                 entity.ClearDomainEvents();
-
                 return domainEvents;
-            })
-            .ToList();
+            })];
+    }
 
+    private async Task PublishDomainEventsAsync(List<IDomainEvent> domainEvents)
+    {
         using var scope = _serviceScopeFactory.CreateScope();
-
         var publisher = scope.ServiceProvider.GetRequiredService<IPublisher>();
 
         foreach (var domainEvent in domainEvents)

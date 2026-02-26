@@ -540,6 +540,7 @@
         "type": "Project",
         "dependencies": {
           "EFCore.NamingConventions": "[10.0.1, )",
+          "MassTransit": "[9.0.1, )",
           "Microsoft.Extensions.Caching.Hybrid": "[10.3.0, )",
           "Microsoft.Extensions.Caching.StackExchangeRedis": "[10.0.3, )",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "[10.0.0, )",
@@ -549,6 +550,7 @@
       "saas.common.presentation": {
         "type": "Project",
         "dependencies": {
+          "MassTransit.Abstractions": "[9.0.1, )",
           "Saas.Common.Domain": "[1.0.0, )"
         }
       },
@@ -592,8 +594,7 @@
           "Microsoft.Extensions.Caching.Hybrid": "[10.3.0, )",
           "Saas.Common.Application": "[1.0.0, )",
           "Saas.Modules.Events.PublicApi": "[1.0.0, )",
-          "Saas.Modules.Ticketing.Domain": "[1.0.0, )",
-          "Saas.Modules.Users.PublicApi": "[1.0.0, )"
+          "Saas.Modules.Ticketing.Domain": "[1.0.0, )"
         }
       },
       "saas.modules.ticketing.domain": {
@@ -617,7 +618,8 @@
         "type": "Project",
         "dependencies": {
           "Saas.Common.Presentation": "[1.0.0, )",
-          "Saas.Modules.Ticketing.Application": "[1.0.0, )"
+          "Saas.Modules.Ticketing.Application": "[1.0.0, )",
+          "Saas.Modules.Users.IntegrationEvents": "[1.0.0, )"
         }
       },
       "saas.modules.ticketing.publicapi": {
@@ -627,8 +629,8 @@
         "type": "Project",
         "dependencies": {
           "Saas.Common.Application": "[1.0.0, )",
-          "Saas.Modules.Ticketing.PublicApi": "[1.0.0, )",
-          "Saas.Modules.Users.Domain": "[1.0.0, )"
+          "Saas.Modules.Users.Domain": "[1.0.0, )",
+          "Saas.Modules.Users.IntegrationEvents": "[1.0.0, )"
         }
       },
       "saas.modules.users.domain": {
@@ -642,8 +644,13 @@
         "dependencies": {
           "Saas.Common.Infrastructure": "[1.0.0, )",
           "Saas.Modules.Users.Application": "[1.0.0, )",
-          "Saas.Modules.Users.Presentation": "[1.0.0, )",
-          "Saas.Modules.Users.PublicApi": "[1.0.0, )"
+          "Saas.Modules.Users.Presentation": "[1.0.0, )"
+        }
+      },
+      "saas.modules.users.integrationevents": {
+        "type": "Project",
+        "dependencies": {
+          "Saas.Common.Application": "[1.0.0, )"
         }
       },
       "saas.modules.users.presentation": {
@@ -653,9 +660,6 @@
           "Saas.Common.Presentation": "[1.0.0, )",
           "Saas.Modules.Users.Application": "[1.0.0, )"
         }
-      },
-      "saas.modules.users.publicapi": {
-        "type": "Project"
       },
       "saasapi.servicedefaults": {
         "type": "Project",
@@ -695,6 +699,21 @@
         "dependencies": {
           "FluentValidation": "12.1.1"
         }
+      },
+      "MassTransit": {
+        "type": "CentralTransitive",
+        "requested": "[9.0.1, )",
+        "resolved": "9.0.1",
+        "contentHash": "wYMV/TX9AQqG9ybG7i97Et2rjPgIYXmYr3RV5k7ogr/BvPnAF8ohcmeESoTYSgQFWDi2lurKx57uPg1MJ9R0jw==",
+        "dependencies": {
+          "MassTransit.Abstractions": "9.0.1"
+        }
+      },
+      "MassTransit.Abstractions": {
+        "type": "CentralTransitive",
+        "requested": "[9.0.1, )",
+        "resolved": "9.0.1",
+        "contentHash": "Rh3Bj/8VOdaUat2Zepbe1cfqQ+20Pqd9zoUme8w50qXISZ9p6yuxBXNNBazS16TN6Kfd4FLxuMUtjY928Rxqdw=="
       },
       "MediatR": {
         "type": "CentralTransitive",

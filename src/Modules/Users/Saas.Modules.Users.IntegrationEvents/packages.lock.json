@@ -108,21 +108,6 @@
           "MediatR.Contracts": "[2.0.1, )"
         }
       },
-      "saas.modules.ticketing.publicapi": {
-        "type": "Project"
-      },
-      "saas.modules.users.domain": {
-        "type": "Project",
-        "dependencies": {
-          "Saas.Common.Domain": "[1.0.0, )"
-        }
-      },
-      "saas.modules.users.integrationevents": {
-        "type": "Project",
-        "dependencies": {
-          "Saas.Common.Application": "[1.0.0, )"
-        }
-      },
       "Dapper": {
         "type": "CentralTransitive",
         "requested": "[2.1.66, )",

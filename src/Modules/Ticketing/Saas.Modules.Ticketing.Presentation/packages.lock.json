@@ -123,6 +123,7 @@
       "saas.common.presentation": {
         "type": "Project",
         "dependencies": {
+          "MassTransit.Abstractions": "[9.0.1, )",
           "Saas.Common.Domain": "[1.0.0, )"
         }
       },
@@ -135,8 +136,7 @@
           "Microsoft.Extensions.Caching.Hybrid": "[10.3.0, )",
           "Saas.Common.Application": "[1.0.0, )",
           "Saas.Modules.Events.PublicApi": "[1.0.0, )",
-          "Saas.Modules.Ticketing.Domain": "[1.0.0, )",
-          "Saas.Modules.Users.PublicApi": "[1.0.0, )"
+          "Saas.Modules.Ticketing.Domain": "[1.0.0, )"
         }
       },
       "saas.modules.ticketing.domain": {
@@ -145,8 +145,11 @@
           "Saas.Common.Domain": "[1.0.0, )"
         }
       },
-      "saas.modules.users.publicapi": {
-        "type": "Project"
+      "saas.modules.users.integrationevents": {
+        "type": "Project",
+        "dependencies": {
+          "Saas.Common.Application": "[1.0.0, )"
+        }
       },
       "Dapper": {
         "type": "CentralTransitive",
@@ -163,6 +166,12 @@
           "FluentValidation": "12.1.1",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.0"
         }
+      },
+      "MassTransit.Abstractions": {
+        "type": "CentralTransitive",
+        "requested": "[9.0.1, )",
+        "resolved": "9.0.1",
+        "contentHash": "Rh3Bj/8VOdaUat2Zepbe1cfqQ+20Pqd9zoUme8w50qXISZ9p6yuxBXNNBazS16TN6Kfd4FLxuMUtjY928Rxqdw=="
       },
       "MediatR": {
         "type": "CentralTransitive",

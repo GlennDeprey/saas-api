@@ -25,7 +25,10 @@ public static class StartupExtensions
         var redisConnectionString = configuration.GetConnectionString("redis") ??
             throw new InvalidOperationException("Connection string 'redis' not found.");
 
-        services.AddInfrastructure(databaseConnectionString, redisConnectionString);
+        services.AddInfrastructure(
+            [TicketingModule.ConfigureConsumers],
+            databaseConnectionString,
+            redisConnectionString);
         return services;
     }
 
