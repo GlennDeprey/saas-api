@@ -542,6 +542,7 @@
         "type": "Project",
         "dependencies": {
           "EFCore.NamingConventions": "[10.0.1, )",
+          "Microsoft.Extensions.Caching.Hybrid": "[10.3.0, )",
           "Microsoft.Extensions.Caching.StackExchangeRedis": "[10.0.3, )",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "[10.0.0, )",
           "Saas.Common.Application": "[1.0.0, )"
@@ -624,6 +625,12 @@
           "MediatR.Contracts": "[2.0.1, 3.0.0)",
           "Microsoft.IdentityModel.JsonWebTokens": "8.14.0"
         }
+      },
+      "Microsoft.Extensions.Caching.Hybrid": {
+        "type": "CentralTransitive",
+        "requested": "[10.3.0, )",
+        "resolved": "10.3.0",
+        "contentHash": "M64quRgc0tSGs8aTj7XNr0sm4nsoqNuAaDDUohC2UGEPyMt3jhW4dHcCUUk/UBYfj+XPWDeycbDIUsdIO5mShw=="
       },
       "Microsoft.Extensions.Caching.StackExchangeRedis": {
         "type": "CentralTransitive",

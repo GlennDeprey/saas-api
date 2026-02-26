@@ -1,10 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Caching.Hybrid;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Npgsql;
-using Saas.Common.Application.Caching;
 using Saas.Common.Application.Clock;
 using Saas.Common.Application.Data;
-using Saas.Common.Infrastructure.Caching;
 using Saas.Common.Infrastructure.Clock;
 using Saas.Common.Infrastructure.Data;
 using StackExchange.Redis;
@@ -26,13 +25,27 @@ public static class InfrastructureConfiguration
 
         services.TryAddSingleton<IDateTimeProvider, DateTimeProvider>();
 
+        services.AddCaching(redisConnectionString);
+
+        return services;
+    }
+
+    private static IServiceCollection AddCaching(this IServiceCollection services, string redisConnectionString)
+    {
+        // Configure hybrid cache with Redis as the distributed cache and in-memory as the local cache.
+        services.AddHybridCache(options =>
+        {
+            options.DefaultEntryOptions = new HybridCacheEntryOptions
+            {
+                Expiration = TimeSpan.FromMinutes(10),
+                LocalCacheExpiration = TimeSpan.FromMinutes(10)
+            };
+        });
+
         var connectionMultiplexer = ConnectionMultiplexer.Connect(redisConnectionString);
         services.TryAddSingleton(connectionMultiplexer);
-
         services.AddStackExchangeRedisCache(options =>
             options.ConnectionMultiplexerFactory = () => Task.FromResult<IConnectionMultiplexer>(connectionMultiplexer));
-
-        services.TryAddSingleton<ICacheService, CacheService>();
 
         return services;
     }
